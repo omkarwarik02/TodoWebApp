@@ -1,0 +1,22 @@
+<div class="page-content">
+  <div class="heading">
+    <h1>Create Todo</h1>
+  </div>
+  <div class="outer">
+     
+    <p-toast />
+<div class="card flex justify-center relative pb-4">
+ 
+    <form [formGroup]="createForm" (ngSubmit)="onSubmit()" class="flex justify-center flex-col gap-4 md:w-56">
+      
+        <div class="flex flex-col gap-1">
+            <p-autocomplete formControlName="title"  [invalid]="isInvalid('title')"  />
+            @if (isInvalid('title')) {
+                <p-message severity="error" size="small" variant="simple" class="absolute mt-6 mb-6 ml-1">Value is required.</p-message>
+            }
+        </div>
+        <button pButton severity="secondary" type="submit"><span pButtonLabel>Submit</span></button>
+    </form>
+</div>
+  </div>
+</div>

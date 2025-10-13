@@ -1,0 +1,31 @@
+
+<div class="mb-4 p-8">
+  <div *ngFor="let todo of todoStore.todos">
+    <div class="Container">
+        <p-card class="m-5 w-auto ">
+      <div class="card flex justify-center ">
+        <input type="checkbox" class="tick" [checked]="todo.completed" (change)="onToggle(todo._id, !todo.completed)"    [disabled]="todo.completed" >
+        <span [class.completed]="todo.completed" class="mt-1">
+    {{ todo.title }}
+  </span>
+  @if (todo.completed) {
+     <div class="card flex justify-center">
+     <p-button label="Update"  size="small" (click)="onEdit(todo)" class="update" [disabled]="true"/>
+  </div>
+ 
+  }@else {
+     <div class="card flex justify-center">
+     <p-button label="Update"  size="small" (click)="onEdit(todo)" class="update" [disabled]="false"/>
+  </div>
+  }
+ 
+ 
+  <p-button label="Delete"  size="small" (click)="onDelete(todo._id)" class="delete"/>
+
+      </div>
+    </p-card>
+    </div>
+
+  
+  </div>
+</div>

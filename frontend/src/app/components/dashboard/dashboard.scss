@@ -1,0 +1,30 @@
+.title {
+    display: flex;               /* side by side */
+    flex-direction: row;         /* horizontal alignment */
+    justify-content: center;     /* center entire row horizontally */
+    align-items: center;         /* center vertically */
+    height: 100vh;
+    gap: 20px;                   /* space between text and image */
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;      /* stack h1 and h2 vertically */
+    justify-content: center;
+    align-items: flex-start;     /* left align text */
+}
+
+.text {
+    font-size: 2rem;
+}
+
+.sub-text {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    margin-right: 3rem;
+}
+
+.profile-img {
+    width: 300px;    /* adjust size */
+    height: auto;
+}

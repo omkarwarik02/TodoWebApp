@@ -1,0 +1,20 @@
+<div class="page-content">
+  <div class="heading">
+    <h1>Create Todo</h1>
+  </div>
+  <div class="outer">
+     
+    <p-toast />
+<div class="card flex justify-center relative pb-4">
+ 
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit(todo._id)" class="flex justify-center flex-col gap-4 md:w-56">
+      
+        <div class="flex flex-col gap-1">
+            <p-autocomplete formControlName="title" [suggestions]="items"  />
+           
+        </div>
+        <button pButton severity="secondary" type="submit"><span pButtonLabel>Submit</span></button>
+    </form>
+</div>
+  </div>
+</div>

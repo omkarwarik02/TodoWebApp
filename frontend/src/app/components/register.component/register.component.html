@@ -1,0 +1,38 @@
+
+<div class="page-container">
+  <div class="card">
+    <!-- Bind formGroup here -->
+    <form [formGroup]="registerForm">
+
+      <div class="field-row align-items-center justify-content-center">
+
+        <div class="field flex-col gap-3 relative pb-4">
+          <label for="email" class="mt-2">Email</label>
+          <!-- Bind email control -->
+          <input pInputText id="email" class="h-5" type="text" formControlName="email" placeholder="Enter your email" />
+          <small *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-red-500 absolute bottom-0 left-0 ml-7">
+            Valid email is required
+          </small>
+        </div>
+
+        <div class="field flex-col gap-3 relative pb-4">
+          <label for="password" class="mt-2 ">Password</label>
+          <!-- Bind password control -->
+          <input pInputText id="password" type="password" formControlName="password" placeholder="Enter your password" class="mr-4" />
+          <small *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-red-500 absolute bottom-0 left-0 ml-8">
+            Password is required
+          </small>
+        </div>
+
+        
+      </div>
+
+    </form>
+
+    <div class="w-20rem md:w-5/12 flex justify-content-center flex-wrap items-center py-5">
+      <p-button label="Sign Up" (click)="register()" icon="pi pi-user-plus" severity="success" class="w-full max-w-[17.35rem]" styleClass="w-full mx-auto" />
+    </div>
+  </div>
+</div>
+
+<p-toast></p-toast>

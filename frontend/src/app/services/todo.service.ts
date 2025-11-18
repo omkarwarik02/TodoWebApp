@@ -11,7 +11,7 @@ import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class TodoService{
-private apiUrl = environment.apiUrl + "/auth";
+private apiUrl = environment.apiUrl + "/todos";
 
 
 

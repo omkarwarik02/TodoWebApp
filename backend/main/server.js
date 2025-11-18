@@ -16,9 +16,13 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:4200',
+  origin: [
+    "https://todo-web-app-b1j2-gzm7mpttz-omkarwarik02s-projects.vercel.app",
+    "http://localhost:4200"
+  ],
   credentials: true
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

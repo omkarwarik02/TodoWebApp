@@ -3,22 +3,21 @@
     gap: 10rem;
     margin-right: 1rem;
 }
-.Container{
-   display: flex;
-    justify-content: center;
-     max-width: 34.5rem;
-     margin-bottom:2rem ;
-}
+
 /* todo-list.scss */
 .completed {
   text-decoration: line-through;
   color: gray; /* optional: make it look muted */
 }
+.container{
+    display: flex;
+    position: absolute;
+    justify-content: end;
+    margin-left: 50rem;
+}
 .update{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 15rem;
+    margin-left: 40rem;
 
 }
 .delete{

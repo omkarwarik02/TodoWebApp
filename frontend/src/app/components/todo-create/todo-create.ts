@@ -32,7 +32,8 @@ export class TodoCreate implements OnInit{
 
   ngOnInit() {
       this.createForm = this.fb.group({
-        title: ['', Validators.required]
+        title: ['', Validators.required],
+        remindAt:['',Validators.required]
       })
   }
     search(event: AutoCompleteCompleteEvent) {
@@ -42,8 +43,8 @@ export class TodoCreate implements OnInit{
     onSubmit() {
         this.formSubmitted = true;
         if (this.createForm.valid) {
-          const title = this.createForm.value.title;
-          this.todoStore.addTodo(title);
+          const {title,remindAt} = this.createForm.value;
+          this.todoStore.addTodo({title , remindAt});
             this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Form is submitted', life: 3000 });
         }
         this.createForm.reset();

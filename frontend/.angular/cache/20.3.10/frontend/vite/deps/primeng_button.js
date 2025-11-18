@@ -1,20 +1,20 @@
 import {
-  AutoFocus
-} from "./chunk-QTFT7WFM.js";
-import {
-  Fluid
-} from "./chunk-CABRITZI.js";
-import {
   Badge,
   BadgeModule
 } from "./chunk-4B25K4YO.js";
+import {
+  AutoFocus
+} from "./chunk-QTFT7WFM.js";
 import "./chunk-EHYY7QKD.js";
+import {
+  Ripple
+} from "./chunk-5ZE2CJM2.js";
 import {
   SpinnerIcon
 } from "./chunk-XMNHJD2G.js";
 import {
-  Ripple
-} from "./chunk-5ZE2CJM2.js";
+  Fluid
+} from "./chunk-CABRITZI.js";
 import {
   BaseComponent
 } from "./chunk-RJLCHWJP.js";

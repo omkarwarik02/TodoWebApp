@@ -1,37 +1,53 @@
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '.env') });
+
 const express = require("express");
-const cors = require("cors");
-const connectDB = require("../config/Db"); // your MongoDB connect function
+const mongoose = require("mongoose");
+const agenda = require("../agenda/agendaInstance");
+// ✅ use Agenda directly here
+const connectDB = require("../config/Db");
 const authRoutes = require("../routes/authRoutes");
 const todoRoutes = require("../routes/todoRoutes");
-
-
+const defineJobs = require("../jobs/agendaJobs");
+const cors = require("cors");
+const notificationRoutes = require("../routes/notificationRoutes");
 
 const app = express();
 
-// Connect to MongoDB first
-connectDB()
-  .then(() => {
-    console.log("MongoDB Connected");
+// Middleware
+app.use(cors({
+  origin: 'http://localhost:4200',
+  credentials: true
+}));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-    // Middleware
-    app.use(cors({
-      origin: 'http://localhost:4200',
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-      credentials: true
-    }));
-    app.use(express.json({ limit: '10mb' }));
-    app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+// Routes
+app.use("/api/auth", authRoutes);
+app.use("/api/todos", todoRoutes);
+app.use("/api/notifications", notificationRoutes);
 
-    // Routes
-    app.use("/api/auth", authRoutes);
-    app.use("/api/todos", todoRoutes);
 
-    // Start server only after DB is connected
-    app.listen(5000, () => console.log("Server running on port 5000"));
-  })
-  .catch(err => {
-    console.error("Failed to connect to MongoDB:", err.message);
-    process.exit(1); // stop server if DB fails
-  });
+// ✅ DB + Agenda
+// ✅ DB + Agenda + Server
+// ✅ DB + Agenda + Server
+(async () => {
+  try {
+    await connectDB();
+    console.log("✅ MongoDB Ready");
+
+    defineJobs(agenda);     // load job definitions
+    await agenda.start();   // start scheduler
+    console.log("✅ Agenda Started");
+
+    app.listen(5000, () =>
+      console.log("🚀 Server running on port 5000")
+    );
+
+  } catch (err) {
+    console.error("❌ Startup Error:", err.message);
+    process.exit(1);
+  }
+})();
+
+

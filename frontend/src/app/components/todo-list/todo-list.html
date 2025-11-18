@@ -1,31 +1,58 @@
-
-<div class="mb-4 p-8">
+<div class="items-center justify-center min-h-screen p-8">
   <div *ngFor="let todo of todoStore.todos">
-    <div class="Container">
-        <p-card class="m-5 w-auto ">
-      <div class="card flex justify-center ">
-        <input type="checkbox" class="tick" [checked]="todo.completed" (change)="onToggle(todo._id, !todo.completed)"    [disabled]="todo.completed" >
-        <span [class.completed]="todo.completed" class="mt-1">
-    {{ todo.title }}
-  </span>
-  @if (todo.completed) {
-     <div class="card flex justify-center">
-     <p-button label="Update"  size="small" (click)="onEdit(todo)" class="update" [disabled]="true"/>
-  </div>
- 
-  }@else {
-     <div class="card flex justify-center">
-     <p-button label="Update"  size="small" (click)="onEdit(todo)" class="update" [disabled]="false"/>
-  </div>
-  }
- 
- 
-  <p-button label="Delete"  size="small" (click)="onDelete(todo._id)" class="delete"/>
+    <p-card class="w-full mt-5">
+      <div class="flex items-center p-4">
+
+        <!-- Checkbox + Title -->
+        <div class="flex items-center gap-2">
+          <input
+            type="checkbox"
+            class="tick"
+            [checked]="todo.completed"
+            (change)="onToggle(todo._id, !todo.completed)"
+            [disabled]="todo.completed"
+          />
+
+          <span [class.completed]="todo.completed">
+            {{ todo.title }}
+          </span>
+        </div>
+
+        <div class="container">
+          @if (todo.completed) {
+          <div class=" flex justify-content-center ml-8">
+            <p-button 
+              label="Update" 
+              size="small" 
+              (click)="onEdit(todo)" 
+              class="update" 
+              [disabled]="true" />
+          </div>
+        } @else {
+          <div class="ml-4">
+            <p-button 
+              label="Update" 
+              size="small" 
+              (click)="onEdit(todo)" 
+              class="update" 
+              [disabled]="false" />
+          </div>
+        }
+
+        <!-- Delete Button -->
+        <div class="flex justify-center ml-auto gap-2">
+          <p-button
+            label="Delete"
+            size="small"
+            (click)="onDelete(todo._id)"
+            class="delete"
+          ></p-button>
+        </div>
+        </div>
+        <!-- Update Button -->
+        
 
       </div>
     </p-card>
-    </div>
-
-  
   </div>
 </div>

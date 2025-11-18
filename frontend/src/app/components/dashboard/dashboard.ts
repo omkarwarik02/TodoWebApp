@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component,AfterViewInit } from '@angular/core';
+
+
+
 
 @Component({
   selector: 'app-dashboard',
@@ -7,6 +10,5 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard.scss'
 })
 export class Dashboard {
-title= 'Todo App';
-subTitle='Stay organized, Stay ahead';
+
 }

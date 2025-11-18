@@ -5,6 +5,7 @@ export interface Todo {
     _id:string;
     title:string;
     completed:boolean;
+    remindAt?:string;
 }
 
 export interface AppState{
@@ -36,8 +37,8 @@ export class TodoStore {
             this.state.set({todos:formatted})})
     }
     // Private method to modify state
-    addTodo(title:string){
-    this.todoService.addTodo(title).subscribe(newTodo=>{
+    addTodo(todo:{title:string; remindAt:string}){
+    this.todoService.addTodo(todo).subscribe(newTodo=>{
         this.state.update(prev=>({
             todos:[...prev.todos,newTodo]
         }));

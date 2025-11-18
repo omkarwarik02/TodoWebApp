@@ -6,11 +6,11 @@ import {
   trigger
 } from "./chunk-TUQCQLYG.js";
 import {
-  TimesIcon
-} from "./chunk-XMNHJD2G.js";
-import {
   Ripple
 } from "./chunk-5ZE2CJM2.js";
+import {
+  TimesIcon
+} from "./chunk-XMNHJD2G.js";
 import {
   BaseComponent
 } from "./chunk-RJLCHWJP.js";

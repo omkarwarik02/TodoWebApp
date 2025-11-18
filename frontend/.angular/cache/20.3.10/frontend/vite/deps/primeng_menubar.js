@@ -1,21 +1,21 @@
 import {
-  zindexutils
-} from "./chunk-MSLMIYFU.js";
-import {
   Badge,
   BadgeModule
 } from "./chunk-4B25K4YO.js";
 import {
+  zindexutils
+} from "./chunk-MSLMIYFU.js";
+import {
   ConnectedOverlayScrollHandler
 } from "./chunk-EHYY7QKD.js";
+import {
+  Ripple
+} from "./chunk-5ZE2CJM2.js";
 import {
   AngleDownIcon,
   AngleRightIcon,
   BarsIcon
 } from "./chunk-XMNHJD2G.js";
-import {
-  Ripple
-} from "./chunk-5ZE2CJM2.js";
 import {
   BaseComponent
 } from "./chunk-RJLCHWJP.js";

@@ -1,20 +1,48 @@
-const express =  require("express");
+const express = require("express");
 const Todo = require("../models/todo");
 const auth = require("../middleware/authMiddleware");
 const mongoose = require("mongoose");
-
+const agenda = require("../agenda/agendaInstance"); 
+const User = require("../models/user")
 
 const router = express.Router();
+router.post("/", auth, async (req, res) => {
+  try {
+    const { title, remindAt } = req.body; // <-- getting datetime string from frontend
 
-//Post
-router.post("/", auth, async (req , res)=>{
-    const { title } = req.body;
-
-    const todo =  await new Todo({title, author: new mongoose.Types.ObjectId(req.user.id)});
-    await todo.save();
-    res.json(todo);
+    const todo = new Todo({
+      title,
+      author: req.user.id,
+      remindAt: remindAt ? new Date(remindAt) : null
     });
 
+    await todo.save();
+
+    const user = await User.findById(req.user.id).select("email deviceToken");
+
+    // Schedule Reminder Only If remindAt is valid and in the future
+    if (remindAt) {
+      const scheduleTime = new Date(remindAt);
+
+      if (!isNaN(scheduleTime.getTime()) && scheduleTime > new Date()) {
+        await agenda.schedule(scheduleTime, "todo reminder", {
+          todo: { title: todo.title },
+          user: { id:req.user.id, email: user.email }
+        });
+
+        console.log(`📅 Reminder set for ${scheduleTime.toISOString()}`);
+      } else {
+        console.log("⚠️ 'remindAt' is invalid or in the past. Reminder NOT scheduled.");
+      }
+    }
+
+    res.json(todo);
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ msg: "Server Error" });
+  }
+});
 //Get all todos
 router.get("/",auth,async (req,res)=>{
 try{
@@ -67,6 +95,4 @@ router.delete("/:id", auth, async (req , res)=>{
     res.status(500).json({ msg: "Server error" });
   }
 });
-
-
 module.exports = router;

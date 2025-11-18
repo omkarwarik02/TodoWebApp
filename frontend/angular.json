@@ -26,6 +26,8 @@
             "assets": [
                "src/favicon.ico",
                 "src/assets/images",
+                  "src/firebase-messaging-sw.js",
+                
               {
 
                 "glob": "**/*",

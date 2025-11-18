@@ -9,6 +9,7 @@ import { MessageService } from 'primeng/api';
 import { AuthStore } from '../../store/auth.store';
 import { Router } from '@angular/router';
 import { ToastModule } from 'primeng/toast';
+import { setupPushAfterLogin} from "../firebase/pushetup"
 @Component({
   selector: 'app-login.component',
   standalone:true,
@@ -41,10 +42,12 @@ export class LoginComponent implements OnInit  {
       return;
     }
     this.auth.login(this.loginForm.value).subscribe({
-      next:(res:any)=>{
+      next:async(res:any)=>{
          if (res.token) {
         // ✅ Store the token immediately
         this.authStore.setToken(res.token);
+
+        await setupPushAfterLogin(res.token);
       
       }
          this.router.navigate(['/dashboard']);

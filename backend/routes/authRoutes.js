@@ -43,7 +43,7 @@ router.post("/register", async (req, res) => {
     });
 
   } catch (err) {
-    console.error('Register error:', err); // ✅ logs exact error
+    console.error('Register error:', err); //  logs exact error
     res.status(500).json({ msg: "Server error" });
   }
 });
@@ -67,7 +67,7 @@ router.post("/login", async (req,res) => {
     res.json({ token });
 
   } catch (err) {
-    console.error('Login error:', err); // ✅ logs exact error
+    console.error('Login error:', err); //  logs exact error
     res.status(500).json({ msg: "Server error" });
   }
 });

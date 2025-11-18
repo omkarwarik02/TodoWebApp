@@ -18,8 +18,8 @@ export class TodoService{
     getTodos():Observable<Todo[]>{
         return this.http.get<Todo[]>(this.apiUrl,this.getAuthHeaders());
     }
-    addTodo(title:string):Observable<Todo>{
-        return this.http.post<Todo>(this.apiUrl,{title},this.getAuthHeaders());
+    addTodo(todo:{title:string; remindAt:string}):Observable<Todo>{
+        return this.http.post<Todo>(this.apiUrl,todo,this.getAuthHeaders());
     }
     toggleTodo(id:string,completed:boolean):Observable<Todo>{
         return this.http.put<Todo>(`${this.apiUrl}/${id}`,{completed},this.getAuthHeaders());

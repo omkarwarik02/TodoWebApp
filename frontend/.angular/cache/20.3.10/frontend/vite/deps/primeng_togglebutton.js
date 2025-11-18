@@ -1,10 +1,13 @@
 import {
   BaseEditableHolder
 } from "./chunk-ZEBLYRPW.js";
-import "./chunk-FXM4O27V.js";
 import {
   Ripple
 } from "./chunk-5ZE2CJM2.js";
+import "./chunk-FXM4O27V.js";
+import {
+  NG_VALUE_ACCESSOR
+} from "./chunk-XH7G2VZM.js";
 import "./chunk-RJLCHWJP.js";
 import {
   BaseStyle
@@ -13,9 +16,6 @@ import {
   PrimeTemplate,
   SharedModule
 } from "./chunk-FVAOX4WG.js";
-import {
-  NG_VALUE_ACCESSOR
-} from "./chunk-XH7G2VZM.js";
 import {
   CommonModule,
   NgTemplateOutlet

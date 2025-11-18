@@ -3,10 +3,16 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { TodoStore,Todo } from '../store/todo.store';
 import { Observable } from 'rxjs';
 import { AuthStore } from '../store/auth.store';
+import { environment } from '../../environments/environment';
+
+
+
+
 
 @Injectable({ providedIn: 'root' })
 export class TodoService{
-    private apiUrl = 'http://localhost:5000/api/todos';
+private apiUrl = `${environment.apiUrl}/api/todos`;
+
     private http = inject(HttpClient);
     private auth = inject(AuthStore);
 

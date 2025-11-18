@@ -17,11 +17,14 @@ const app = express();
 // Middleware
 app.use(cors({
   origin: [
-    "https://todo-web-app-b1j2-gzm7mpttz-omkarwarik02s-projects.vercel.app",
+    "https://todo-web-5w1fd8gf4-omkarwarik02s-projects.vercel.app",  // correct Vercel url
     "http://localhost:4200"
   ],
+  methods: "GET,POST,PUT,DELETE",
+  allowedHeaders: "Content-Type,Authorization",
   credentials: true
 }));
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

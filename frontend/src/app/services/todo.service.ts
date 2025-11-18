@@ -11,7 +11,8 @@ import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class TodoService{
-private apiUrl = `${environment.apiUrl}/api/todos`;
+private apiUrl = 'https://todo-backend.onrender.com/api/todos';
+
 
     private http = inject(HttpClient);
     private auth = inject(AuthStore);

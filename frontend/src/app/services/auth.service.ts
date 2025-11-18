@@ -7,7 +7,8 @@ import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService{
-    private apiUrl = `${environment.apiUrl}/api/auth`
+  private apiUrl = 'https://todo-backend.onrender.com/api/auth';
+
 
 
     constructor(private http:HttpClient, private authStore: AuthStore){}

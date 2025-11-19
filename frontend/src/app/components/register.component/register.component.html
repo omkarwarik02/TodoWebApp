@@ -2,7 +2,7 @@
 <div class="page-container">
   <div class="card">
     <!-- Bind formGroup here -->
-    <form [formGroup]="registerForm"(ngSubmit)="register()">
+    <form [formGroup]="registerForm"  (ngSubmit)="register()">
 
       <div class="field-row align-items-center justify-content-center">
 
@@ -30,7 +30,7 @@
     </form>
 
     <div class="w-20rem md:w-5/12 flex justify-content-center flex-wrap items-center py-5">
-      <p-button label="Sign Up" (click)="register()" icon="pi pi-user-plus" severity="success" class="w-full max-w-[17.35rem]" styleClass="w-full mx-auto" type="submit" />
+      <p-button label="Sign Up"  icon="pi pi-user-plus" severity="success" class="w-full max-w-[17.35rem]" styleClass="w-full mx-auto" type="submit" />
     </div>
   </div>
 </div>

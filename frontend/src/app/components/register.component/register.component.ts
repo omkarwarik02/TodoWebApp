@@ -41,6 +41,7 @@ export class RegisterComponent implements OnInit{
       this.messageService.add({severity: 'error', summary: 'Error', detail: 'Please fill all fields', life: 3000});
       return;
     }
+     console.log("Form Values:", this.registerForm.value);
     this.auth.register(this.registerForm.value).subscribe({
       next:(res:any)=>{
           this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Login successful!', life: 3000 });

@@ -17,7 +17,7 @@ const app = express();
 // Middleware
 app.use(cors({
   origin: [
-    "https://todo-web-aj1ghxlw1-omkarwarik02s-projects.vercel.app",  // updated Vercel URL
+    "https://todo-web-aj1ghxlw1-omkarwarik02s-projects.vercel.app",
     "http://localhost:4200"
   ],
   methods: "GET,POST,PUT,DELETE",
@@ -25,7 +25,7 @@ app.use(cors({
   credentials: true
 }));
 
-app.options("*", cors());
+app.options("/*", cors());
 
 
 

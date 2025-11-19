@@ -17,13 +17,14 @@ const app = express();
 // Middleware
 app.use(cors({
   origin: [
-    "https://todo-web-aj1ghxlw1-omkarwarik02s-projects.vercel.app",
+    "https://todo-web-app-eight-rosy.vercel.app",  // current production frontend
     "http://localhost:4200"
   ],
-  methods: "GET,POST,PUT,DELETE",
+  methods: "GET,POST,PUT,DELETE,OPTIONS",
   allowedHeaders: "Content-Type,Authorization",
   credentials: true
 }));
+
 
 // Handle CORS Preflight Manually
 app.use((req, res, next) => {
